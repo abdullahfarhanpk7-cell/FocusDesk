@@ -1,3 +1,80 @@
 body{
-    background-color: blueviolet ;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fb;
+}
+
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background-color: #1A2E4C;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Logo Section */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.logo h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+/* Links Container */
+.links ul {
+  display: flex;
+  list-style: none;
+  gap: 6px;
+  margin: 0;
+  padding: 4px;
+  background: #f1f5f9; /* Light grey pill container background */
+  border-radius: 30px;
+}
+
+/* Individual Navigation Tab */
+.nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  color: #64748b; /* Muted text color */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* SVG Icon Sizing */
+.nav-icon {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
+/* Hover State for Inactive Tabs */
+.nav-tab:hover {
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Active State (White Pill Look) */
+.nav-tab.active {
+  background: #ffffff;
+  color: #1e3a8a; /* Deep blue active color */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* Soft elevation shadow */
 }
