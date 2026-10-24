@@ -1,65 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FocusDesk</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FocusDesk</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <img src="Screenshot 2026-10-19 165548.png">
-            <h2>Focus Desk</h2>
-        </div>
-        <div class="links">
-                <ul>
-                    <li>
-                    <a href="#dashboard" class="nav-tab active">
-                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                        </svg>
-                        <span>Dashboard</span>
-                    </a>
-                    </li>
+<header class="nav"><div class="bar">
+<a class="brand" href="#dashboard"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#fff"/><circle cx="20" cy="20" r="12" fill="none" stroke="#2f6fdb" stroke-width="5"/><circle cx="20" cy="20" r="4.5" fill="#0f2447"/></svg>FocusDesk</a>
+<nav aria-label="Main navigation">
+<a href="#dashboard" data-i="home"><span>Dashboard</span></a>
+<a href="#tasks" data-i="check"><span>Tasks</span></a>
+<a href="#focus" data-i="timer"><span>Focus</span></a>
+<a href="#progress" data-i="chart"><span>Progress</span></a>
+</nav>
+</div></header>
 
-    
-                    <li>
-                    <a href="#tasks" class="nav-tab">
-                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 11 12 14 22 4"></polyline>
-                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                        </svg>
-                        <span>Tasks</span>
-                    </a>
-                    </li>
+<main class="wrap">
+<section class="top" data-v="dashboard">
+<div class="hello"><span id="gIcon" class="sun" aria-hidden="true"></span><div><h1 id="greet" aria-live="polite"></h1><p class="date" id="date"></p><p class="quote" id="quote"></p></div></div>
+<div class="card stat"><span class="ico sq" data-i="check" aria-hidden="true"></span><div><small>Tasks completed</small><b id="sTasks">0 / 0</b><div class="meter"><i id="pTasks"></i></div></div></div>
+<div class="card stat"><span class="ico sq" data-i="timer" aria-hidden="true"></span><div><small>Focus today</small><b id="sFocus">0 min</b><div class="meter"><i id="pFocus"></i></div></div></div>
+</section>
 
+<div class="grid" id="grid">
+<section class="card" data-v="dashboard tasks">
+<div class="head"><h2>Today's tasks</h2><button class="btn" data-add data-i="plus">Add task</button></div>
+<div class="pills" id="pills"><button data-f="all">All</button><button data-f="pending">Pending</button><button data-f="completed">Completed</button></div>
+<ul id="list" aria-label="Your tasks"></ul>
+</section>
 
-                    <li>
-                    <a href="#focus" class="nav-tab">
-                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        <span>Focus</span>
-                    </a>
-                    </li>
+<section class="card" data-v="dashboard focus">
+<div class="head"><span class="ico" data-i="timer" aria-hidden="true"></span><h2>Focus session</h2></div>
+<div class="ring"><svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="92" class="tr"/><circle cx="100" cy="100" r="92" class="pg" id="arc"/></svg><div><b id="clock">25:00</b><span id="mode">Focus time</span></div></div>
+<button class="btn big" id="start" data-i="play"><span>Start focusing</span></button>
+<div class="row3">
+<button class="ghost" id="pause" data-i="pause">Pause</button>
+<button class="ghost" id="reset" data-i="reset">Reset</button>
+<button class="ghost" id="brk" data-i="cup">Break (5 min)</button>
+</div>
+<p class="tip" data-i="info"><span id="tip"></span></p>
+</section>
 
+<section class="card" data-v="dashboard progress">
+<div class="head"><span class="ico" data-i="chart" aria-hidden="true"></span><h2>Weekly progress</h2>
+<div class="wk"><button id="prev" aria-label="Previous week">‹</button><span id="range"></span><button id="next" aria-label="Next week">›</button></div></div>
+<div class="charts">
+<div><h3>Tasks completed</h3><div class="ch" id="chT"></div></div>
+<div><h3>Focus minutes</h3><div class="ch" id="chF"></div></div>
+</div>
+<div class="tot">
+<div data-i="check"><b id="tT">0</b><small>Total tasks completed</small></div>
+<div data-i="timer"><b id="tF">0 min</b><small>Total focus time</small></div>
+<div data-i="target"><b id="tS">0</b><small>Focus sessions</small></div>
+</div>
+</section>
 
-                    <li>
-                    <a href="#progress" class="nav-tab">
-                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="20" x2="18" y2="10"></line>
-                        <line x1="12" y1="20" x2="12" y2="4"></line>
-                        <line x1="6" y1="20" x2="6" y2="14"></line>
-                        </svg>
-                        <span>Progress</span>
-                    </a>
-                    </li>
-                </ul>
-        </div>
-    </nav>
-<script src="script.js"></script>    
+<section class="card" data-v="dashboard">
+<div class="head"><span class="ico" data-i="bolt" aria-hidden="true"></span><h2>Quick actions</h2></div>
+<div class="qa">
+<button data-add data-i="plus"><b>Add new task</b><small>Create a new task</small></button>
+<button id="qFocus" data-i="timer"><b>Start focus session</b><small>25-minute timer</small></button>
+<a href="#progress" data-i="chart"><b>View progress</b><small>Check your stats</small></a>
+</div>
+</section>
+</div>
+</main>
+
+<dialog id="dlg" aria-labelledby="dlgTitle"><form id="tf">
+<h2 id="dlgTitle">Add task</h2>
+<label>Task<input name="t" required maxlength="80" autocomplete="off" placeholder="e.g. Solve chapter 5 problems"></label>
+<label>Subject<input name="sub" list="subs" autocomplete="off" placeholder="General"></label>
+<datalist id="subs"><option value="Physics"><option value="Mathematics"><option value="English"><option value="Computer Science"><option value="General"></datalist>
+<div class="two">
+<label>Priority<select name="pri"><option>High</option><option selected>Medium</option><option>Low</option></select></label>
+<label>Due date<input type="date" name="due" required></label>
+</div>
+<div class="act"><button type="button" class="ghost" id="cancel">Cancel</button><button class="btn" id="saveTask">Add task</button></div>
+</form></dialog>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
 </body>
 </html>
