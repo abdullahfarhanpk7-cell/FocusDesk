@@ -31,6 +31,8 @@ h1{font-size:28px}
 .stat b{display:block;font-size:24px}
 .meter{height:6px;background:var(--line);border-radius:9px;margin-top:8px;overflow:hidden}
 .meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2f6fdb,#5a93ec);transition:width .4s}
+.ico{width:44px;height:44px;border-radius:50%;background:var(--soft);color:var(--blue);display:grid;place-items:center;flex:none}
+.ico.sq{border-radius:12px}
 .grid{display:grid;grid-template-columns:1.5fr 1fr;gap:22px}
 .grid.solo{grid-template-columns:minmax(0,860px);justify-content:center}
 .head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
@@ -108,11 +110,9 @@ input:not([type=checkbox]),select{padding:10px 12px;border:1px solid var(--line)
 .act .ghost{padding:10px 18px}
 #toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);background:var(--navy);color:#fff;padding:12px 20px;border-radius:10px;opacity:0;pointer-events:none;transition:.3s;z-index:20;max-width:90vw;text-align:center}
 #toast.on{opacity:1;transform:translate(-50%,0)}
-
+.streak{display: inline-flex;align-items: center;gap: 6px;margin-top: 12px;padding: 5px 12px;border-radius: 99px;background: var(--soft);color: var(--blue);font-size: 13px;font-weight: 600;}
+.streak .i{width: 15px;height: 15px;}
+.find{width: 100%;margin-bottom: 6px;}
+.tt{cursor: text;}
 @media(max-width:960px){.top{grid-template-columns:1fr 1fr}.hello{grid-column:1/-1}.grid{grid-template-columns:1fr}.charts{grid-template-columns:1fr}}
 @media(max-width:620px){.bar{grid-template-columns:1fr auto;padding:0 12px}.brand{font-size:18px}nav a{padding:0 12px}nav a span{display:none}.wrap{padding:20px 14px}.top,.qa,.tot{grid-template-columns:1fr}.card{padding:18px}li{grid-template-columns:auto 1fr auto}.due{grid-column:2;grid-row:2}.more{grid-row:1;grid-column:3}}
-
-/* Hour 1: accessibility and reduced-motion preferences */
-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-button,a{-webkit-tap-highlight-color:transparent}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
